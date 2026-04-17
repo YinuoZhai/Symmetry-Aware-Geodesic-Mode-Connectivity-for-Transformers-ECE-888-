@@ -1,0 +1,59 @@
+data:
+  data_file: data/tiny_shakespeare/tinyshakespeare.txt
+  source_url: https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
+  splits_dir: splits_tiny_contig
+  tokenizer_dir: gpt2_tokenizer
+  val_frac: 0.05
+  test_frac: 0.05
+  method: contiguous
+  split_seed: 123
+
+model:
+  # Official GLMC Tiny Shakespeare defaults from run_train.sh / train.py.
+  block_size: 256
+  n_layer: 6
+  n_embd: 256
+  n_inner: 1024
+  n_head: 4
+  tie_word_embeddings: false
+  resid_pdrop: 0.1
+  embd_pdrop: 0.1
+  attn_pdrop: 0.1
+
+train:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.0003
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  eval_steps: 50
+  logging_steps: 25
+  save_total_limit: 2
+  early_stop: true
+  early_stop_patience: 5
+  fp16: true
+
+eval:
+  batch_size: 64
+  split: test
+  coeff_start: 0.0
+  coeff_end: 1.0
+  coeff_step: 0.1
+  max_batches:
+
+geodesic:
+  # The report uses 25 waypoints and 3000 steps. GPT-2 tokenizer logits are
+  # much larger than char-level logits, so keep batch/sequence smaller for JSD.
+  num_waypoints: 25
+  iterations: 3000
+  batch_size: 8
+  sequence_length: 64
+  learning_rate: 0.1
+  momentum: 0.9
+  grad_clip: 10.0
+  log_interval: 50
+
+experiment:
+  seed_a: 0
+  seed_b: 1
+  out_dir: runs/glmc_tiny_shakespeare

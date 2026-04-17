@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Data and generated preprocessing artifacts
+data/
+gpt2_tokenizer/
+splits_tiny_contig/
+
+# Model checkpoints and training states
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.pkl
+*.pickle
+*.npy
+*.npz
+checkpoint-*/
+gpt2_tinyshakespeare_seed*/
+merge_seed_*/
+
+# Experiment runs are large; keep curated exports in results/
+runs/
+eval_merge_seed_*/
+
+# Keep curated result exports
+!results/
+!results/**
+
+# Reports with private information
+888final_April_17.pdf
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

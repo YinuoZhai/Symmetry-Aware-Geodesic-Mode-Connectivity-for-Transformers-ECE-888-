@@ -1,0 +1,49 @@
+data:
+  data_dir: data/tiny_shakespeare
+  url: https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
+  train_fraction: 0.9
+  download: true
+
+model:
+  # Small GPT-style decoder used for Tiny Shakespeare experiments.
+  # Increase these toward GPT-2 Small only if you have enough GPU memory.
+  block_size: 128
+  n_layer: 4
+  n_head: 4
+  n_embd: 128
+  dropout: 0.1
+  bias: true
+
+train:
+  batch_size: 64
+  max_iters: 5000
+  learning_rate: 0.0003
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_iters: 50
+
+eval:
+  batch_size: 64
+  eval_iters: 100
+  num_points: 25
+  split: val
+
+geodesic:
+  # Matches the GMC paper/report defaults. For a smoke run, override
+  # --num-waypoints and --iterations from the CLI.
+  num_waypoints: 25
+  iterations: 3000
+  batch_size: 256
+  learning_rate: 0.1
+  momentum: 0.9
+  grad_clip: 10.0
+  log_interval: 50
+  eval_interval: 250
+
+experiment:
+  seed_a: 0
+  seed_b: 1
+  out_dir: runs/tiny_shakespeare

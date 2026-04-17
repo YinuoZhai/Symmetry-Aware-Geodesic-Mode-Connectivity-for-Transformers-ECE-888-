@@ -1,0 +1,11 @@
+{
+  "barriers": {
+    "Naive linear": 1.5397534370422363,
+    "GLMC weight": 0.13505005836486816,
+    "GLMC learned": 0.0,
+    "SA-GMC medium": 0.0
+  },
+  "glmc_json": "eval_merge_seed_0_1/merged_coeff_losses_weight_learned_vanilla.json",
+  "sagmc_metrics": "runs/glmc_tiny_shakespeare/sa_gmc_medium_lr1e-3/eval/metrics.json",
+  "energy_log": "runs/glmc_tiny_shakespeare/sa_gmc_medium_lr1e-3/geodesic_metrics.jsonl"
+}
