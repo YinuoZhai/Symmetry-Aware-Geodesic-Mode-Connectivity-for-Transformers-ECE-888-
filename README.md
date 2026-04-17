@@ -131,7 +131,9 @@ Generate the comparison figures:
 python scripts/plot_sagmc_results.py
 ```
 
-Curated final figures and metrics are stored under `results/tiny_shakespeare/`.
+By default this command reads the lightweight curated metrics in `results/tiny_shakespeare/`
+and writes regenerated figures to `runs/glmc_tiny_shakespeare/figures/`. Curated final
+figures and metrics are stored under `results/tiny_shakespeare/`.
 
 ## Lightweight Char-Level Track
 

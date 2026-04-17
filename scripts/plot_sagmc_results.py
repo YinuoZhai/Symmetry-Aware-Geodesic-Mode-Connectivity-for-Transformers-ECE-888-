@@ -111,15 +111,15 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Plot Tiny Shakespeare GLMC and SA-GMC results.")
     parser.add_argument(
         "--glmc-json",
-        default="eval_merge_seed_0_1/merged_coeff_losses_weight_learned_vanilla.json",
+        default="results/tiny_shakespeare/glmc_baseline_seed_0_1.json",
     )
     parser.add_argument(
         "--sagmc-metrics",
-        default="runs/glmc_tiny_shakespeare/sa_gmc_medium_lr1e-3/eval/metrics.json",
+        default="results/tiny_shakespeare/sa_gmc_medium_metrics.json",
     )
     parser.add_argument(
         "--energy-log",
-        default="runs/glmc_tiny_shakespeare/sa_gmc_medium_lr1e-3/geodesic_metrics.jsonl",
+        default="results/tiny_shakespeare/sa_gmc_medium_energy.jsonl",
     )
     parser.add_argument("--out-dir", default="runs/glmc_tiny_shakespeare/figures")
     return parser.parse_args()
